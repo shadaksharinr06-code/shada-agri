@@ -52,7 +52,7 @@ export default function AuthPage({ onLogin }: AuthPageProps) {
               onChange={(event) => setLanguage(event.target.value as typeof language)}
               className="rounded-2xl border border-emerald-200 bg-white px-3 py-2 text-sm outline-none"
             >
-              {(['en', 'kn', 'hi'] as const).map((code) => (
+              {(['en', 'kn', 'hi', 'ta'] as const).map((code) => (
                 <option key={code} value={code}>
                   {languageLabel(code)}
                 </option>

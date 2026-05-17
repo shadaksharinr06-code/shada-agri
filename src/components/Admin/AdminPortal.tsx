@@ -40,9 +40,12 @@ export default function AdminPortal({ onLogout }: AdminPortalProps) {
       id: editId ?? `m-${crypto.randomUUID()}`,
       crop,
       price,
+      priceRaw: parseFloat(price.replace(/[^0-9.]/g, '')) || 0,
       pesticides,
       pesticidePrice,
-      stock
+      stock: stock as MarketRow['stock'],
+      trend: 'stable',
+      lastUpdated: new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
     };
 
     setRows((current) => {
@@ -89,7 +92,7 @@ export default function AdminPortal({ onLogout }: AdminPortalProps) {
                 onChange={(event) => setLanguage(event.target.value as typeof language)}
                 className="bg-transparent text-sm outline-none"
               >
-                {(['en', 'kn', 'hi'] as const).map((code) => (
+                {(['en', 'kn', 'hi', 'ta'] as const).map((code) => (
                   <option key={code} value={code}>
                     {languageLabel(code)}
                   </option>
