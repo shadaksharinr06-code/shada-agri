@@ -2,6 +2,7 @@
   "name": "smart-agriculture-website",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "homepage": "https://shadaksharinr06-code.github.io/shada-agri/",
   "scripts": {
     "dev": "vite",
